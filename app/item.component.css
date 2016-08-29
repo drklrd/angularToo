@@ -1,0 +1,11 @@
+h1  {
+    color : blue
+}
+
+.is-favorite {
+    color : #9c0033;
+}
+
+.is-favorite-hovering{
+    color : #808080;
+}

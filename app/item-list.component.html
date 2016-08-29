@@ -1,0 +1,12 @@
+<heading>
+
+   <div>  Showing items in category : {{items | categoryList}} </div>
+
+</heading>
+
+<section>
+    <item *ngFor="let item of items" [item]="item" (deleteItem)="onItemDelete($event)" [ngClass]="{'item-available':item.availability === true,'item-unavailable': item.availability !== true}" >
+
+    </item>
+
+</section>

@@ -1,0 +1,30 @@
+<header>
+    <h2>Add Item</h2>
+</header>
+<form [formGroup]="form" (ngSubmit)="onSubmit(form.value)"   >
+    <ul>
+        <li>
+            <label for="itemtype">Item Type</label>
+            <select name="itemtype" id="itemtype" required
+                    formControlName="type" >
+                <option *ngFor="let type of lookupLists.itemTypes" value="{{type}}" > {{type}}</option>
+            </select>
+        </li>
+        <li>
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" required formControlName="name">
+            <small [hidden]="form.controls.name.valid || form.controls.name.pristine"> Name is invalid</small>
+        </li>
+        <li>
+            <label for="description">Description</label>
+            <input type="text" name="description" id="description" required formControlName="description">
+        </li>
+
+        <li>
+            <label for="year">Year</label>
+            <input type="date" name="year" id="year" formControlName="addedDate">
+            <small [hidden]="form.controls.addedDate.valid"> Year is invalid. Future date not permissable </small>
+        </li>
+    </ul>
+    <button type="submit" [disabled]="!form.valid">Save</button>
+</form>
