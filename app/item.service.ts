@@ -6,13 +6,26 @@ export class ItemService{
     }
 
     add(item){
-        item.id = this.items.length + 1;
+        
+        item.category = item.type;
+        item.id = this.getMaxId();
+        item.addedOn = item.addedDate;
         item.availability = true;
         this.items.push(item);
     }
 
     delete(item){
         this.items.splice(this.items.indexOf(item),1);
+    }
+
+    getMaxId(){
+
+        var maxId = 0;
+        this.items.forEach(item => {
+            if(item.id>= maxId) maxId = item.id;
+        })
+        return maxId;
+
     }
 
     items = [

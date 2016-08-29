@@ -26,12 +26,22 @@ var ItemService = (function () {
         return this.items;
     };
     ItemService.prototype.add = function (item) {
-        item.id = this.items.length + 1;
+        item.category = item.type;
+        item.id = this.getMaxId();
+        item.addedOn = item.addedDate;
         item.availability = true;
         this.items.push(item);
     };
     ItemService.prototype.delete = function (item) {
         this.items.splice(this.items.indexOf(item), 1);
+    };
+    ItemService.prototype.getMaxId = function () {
+        var maxId = 0;
+        this.items.forEach(function (item) {
+            if (item.id >= maxId)
+                maxId = item.id;
+        });
+        return maxId;
     };
     return ItemService;
 }());
