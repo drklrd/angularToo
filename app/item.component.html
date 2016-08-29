@@ -1,5 +1,15 @@
-<h1> {{item.name | uppercase}} </h1>
-<h3 *ngIf="item.description"> {{item.description}} </h3>
-<h4> Added On {{item.addedOn | date}} </h4>
-<span [iFavorite]="item.isFavorite" > Favorite </span>
-<a (click)="onDelete()" > Remove </a>
+<section >
+	<div class="item-tile">
+		<h1> {{item.name | uppercase}} </h1>
+		<h3 *ngIf="item.description"> {{item.description}} </h3>
+		<h4> Added On {{item.addedOn | date}} </h4>
+	</div>
+
+	<div class="item-tile-footer">
+		<span [iFavorite]="item.isFavorite" > Favorite </span>
+		<a (click)="onDelete()" > Remove </a>
+	</div>
+	
+
+</section>
+

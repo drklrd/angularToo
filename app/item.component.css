@@ -1,6 +1,4 @@
-h1  {
-    color : blue
-}
+
 
 .is-favorite {
     color : #9c0033;
@@ -8,4 +6,23 @@ h1  {
 
 .is-favorite-hovering{
     color : #808080;
+}
+
+.item-tile{
+	padding: 15px;
+	background-color: #e74c3c;
+	width : 300px;
+	color: #ffffff;
+	font-family: 'SanFrancisco';
+}
+
+.item-tile-footer {
+	margin-bottom: 10px;
+}
+
+@font-face {
+
+    font-family: 'SanFrancisco';
+    src: url("/fonts/SanFranciscoDisplay-Thin.otf");
+ 
 }

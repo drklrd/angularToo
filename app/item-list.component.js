@@ -11,13 +11,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var item_component_1 = require('./item.component');
 var category_list_pipe_1 = require('./category-list.pipe');
-var item_service_1 = require("./item.service");
+var item_service_1 = require('./item.service');
 var ItemListComponent = (function () {
     function ItemListComponent(itemService) {
         this.itemService = itemService;
     }
     ItemListComponent.prototype.ngOnInit = function () {
-        this.items = this.itemService.get();
+        var _this = this;
+        this.itemService.get()
+            .map(function (res) { return res.json(); })
+            .subscribe(function (data) {
+            _this.items = _this.itemService.dummyGet();
+            console.log('response', data);
+        });
     };
     ItemListComponent.prototype.onItemDelete = function (item) {
         this.itemService.delete(item);

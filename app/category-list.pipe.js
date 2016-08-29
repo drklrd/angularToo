@@ -13,13 +13,15 @@ var CategoryListPipe = (function () {
     function CategoryListPipe() {
     }
     CategoryListPipe.prototype.transform = function (items) {
-        var categories = [];
-        items.forEach(function (item) {
-            if (categories.indexOf(item.category) === -1) {
-                categories.push(item.category);
-            }
-        });
-        return categories.join(',');
+        if (items && items.length) {
+            var categories = [];
+            items.forEach(function (item) {
+                if (categories.indexOf(item.category) === -1) {
+                    categories.push(item.category);
+                }
+            });
+            return categories.join(',');
+        }
     };
     CategoryListPipe = __decorate([
         core_1.Pipe({

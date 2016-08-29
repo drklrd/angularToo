@@ -1,7 +1,23 @@
+import {Http,Response} from '@angular/http';
+import {Observable} from 'rxjs/Rx';
+import {Injectable} from "@angular/core";
+
+@Injectable()
+
 export class ItemService{
 
+    constructor(private http : Http){}
 
     get(){
+        
+     
+        return this.http.get('https://jsonplaceholder.typicode.com/posts');
+            
+        // return this.items;
+    }
+
+    dummyGet() {
+
         return this.items;
     }
 

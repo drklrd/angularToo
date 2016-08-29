@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {ItemComponent} from './item.component';
 import {CategoryListPipe} from './category-list.pipe';
-import {ItemService} from "./item.service";
+import {ItemService} from './item.service';
 
 @Component({
     selector : 'item-list',
@@ -18,7 +18,17 @@ export class ItemListComponent {
     constructor(private itemService : ItemService){ }
 
     ngOnInit(){
-        this.items = this.itemService.get();
+        
+        this.itemService.get()
+        .map(res => res.json())
+        .subscribe(
+          data => {
+              this.items = this.itemService.dummyGet();
+              console.log('response',data);
+
+          }
+          
+        );
     }
 
     onItemDelete(item) {

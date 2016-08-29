@@ -3,7 +3,7 @@ import {ItemComponent} from './item.component';
 import {ItemListComponent} from './item-list.component';
 import {ItemFormComponent} from './item-form.component';
 import {ROUTER_DIRECTIVES} from '@angular/router';
-
+import {HttpModule} from '@angular/http';
 
 
 
