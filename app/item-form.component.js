@@ -12,7 +12,6 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 var core_1 = require('@angular/core');
-var common_1 = require('@angular/common');
 var forms_1 = require('@angular/forms');
 var item_service_1 = require("./item.service");
 var providers_1 = require('./providers');
@@ -26,10 +25,11 @@ var ItemFormComponent = (function () {
     ItemFormComponent.prototype.ngOnInit = function () {
         this.form = new forms_1.FormGroup({
             'type': new forms_1.FormControl(),
-            'name': new forms_1.FormControl('', common_1.Validators.compose([
-                common_1.Validators.required,
-                common_1.Validators.pattern('[\\w\\-\\s\\/]+')
-            ])),
+            //'name' : new FormControl('',Validators.compose([
+            //    Validators.required,
+            //    Validators.pattern('[\\w\\-\\s\\/]+')
+            //])),
+            'name': new forms_1.FormControl(''),
             'description': new forms_1.FormControl(),
             'addedDate': new forms_1.FormControl('', this.yearValidator)
         });

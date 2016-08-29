@@ -13,6 +13,8 @@ import {ItemService} from "./item.service";
 
 export class ItemListComponent {
 
+    items;
+
     constructor(private itemService : ItemService){ }
 
     ngOnInit(){

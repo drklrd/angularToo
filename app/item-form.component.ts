@@ -24,10 +24,11 @@ export class ItemFormComponent{
     ngOnInit(){
         this.form = new FormGroup({
             'type' : new FormControl(),
-            'name' : new FormControl('',Validators.compose([
-                Validators.required,
-                Validators.pattern('[\\w\\-\\s\\/]+')
-            ])),
+            //'name' : new FormControl('',Validators.compose([
+            //    Validators.required,
+            //    Validators.pattern('[\\w\\-\\s\\/]+')
+            //])),
+            'name' : new FormControl(''),
             'description' : new FormControl(),
             'addedDate' : new FormControl('',this.yearValidator)
         });
